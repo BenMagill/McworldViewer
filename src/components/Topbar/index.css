@@ -1,0 +1,24 @@
+.navbar {
+    border-bottom: 1px black solid;
+    height: 25px;
+}
+
+.tabs {
+    display: inline;
+}
+
+.tab {
+    margin: 0 1px;
+    padding: 0 4px;
+}
+
+.navTitle {
+    display: inline;
+    margin-right: 100px;
+}
+
+.folderSelector {
+    display: inline;
+    right: 0;
+    float: right;
+}
