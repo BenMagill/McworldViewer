@@ -57,6 +57,7 @@
     display: inline-block;
     position: relative;
     height: 32px;
+    image-rendering: pixelated;
 }
 
 .itemTooltip {
