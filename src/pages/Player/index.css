@@ -57,7 +57,16 @@
     display: inline-block;
     position: relative;
     height: 32px;
+    width: 32px;
     image-rendering: pixelated;
+    /* background-color: #8a8a8a; */
+}
+
+.itemImage {
+    max-width: 32px;
+    max-height: 32px;
+    image-rendering: pixelated;
+    margin: auto;
 }
 
 .itemTooltip {

@@ -69,7 +69,7 @@ export default function LoadImage(props) {
                 {/* <img alt=";)" src={ "/images/" + (itemData[e.id.value] != undefined? itemData[e.id.value].type : "166") + "-0.png"}/> */}
                 {/* {itemData[e.id.value] != undefined? "" : console.log(e.id.value)} */}
                 {/* <img className="itemContainer" alt=";)" onError={(ev)=>{ev.target.onerror = null; ev.target.src="/images/new/barrier.png"}} src={ "/images/new/" + (e.id.value != undefined? e.id.value.replace("minecraft:", ""): "barrier") + ".png"}/> */}
-                <img className="itemContainer" alt=";)" onError={(ev)=>{ev.target.onerror = null; ev.target.src="/images/all/barrier.png"; console.log(e)}} src={ "/images/all/" + (e.id.value != undefined? e.id.value.replace("minecraft:", ""): "barrier") + ".png"}/>
+                <img className="itemContainer" alt=";)" onError={(ev)=>{ev.target.onerror = null; ev.target.src="/images/all/barrier.png"; console.log(e.id.value)}} src={ "/images/all/" + (e.id.value != undefined? e.id.value.replace("minecraft:", ""): "barrier") + ".png"}/>
                 <span className="itemTooltip">
                     <p className="itemNickname">{e.tag ? e.tag.value.display ? JSON.parse(e.tag.value.display.value.Name.value).text : null : null}</p>
 
