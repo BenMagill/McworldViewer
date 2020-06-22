@@ -73,11 +73,11 @@ export default function LoadImage(props) {
 
         return (
             <React.Fragment>
-            <div className={"itemContainer " + (isEnchanted || isEnchantedBook ?"enchanted":null) } onClick={handleShulkerOpen}>
+            <div className={"itemContainer " + (isEnchanted || isEnchantedBook ?"enchanted":"") } onClick={handleShulkerOpen}>
                 {/* <img alt=";)" src={ "/images/" + (itemData[e.id.value] != undefined? itemData[e.id.value].type : "166") + "-0.png"}/> */}
                 {/* {itemData[e.id.value] != undefined? "" : console.log(e.id.value)} */}
                 {/* <img className="itemContainer" alt=";)" onError={(ev)=>{ev.target.onerror = null; ev.target.src="/images/new/barrier.png"}} src={ "/images/new/" + (e.id.value != undefined? e.id.value.replace("minecraft:", ""): "barrier") + ".png"}/> */}
-                <img className="itemContainer" alt=";)" onError={(ev)=>{ev.target.onerror = null; ev.target.src="/images/all/barrier.png";}} src={ "/images/all/" + (e.id.value != undefined? e.id.value.replace("minecraft:", ""): "barrier") + ".png"}/>
+                <img className="item" alt=";)" onError={(ev)=>{ev.target.onerror = null; ev.target.src="/images/all/barrier.png";}} src={ "/images/all/" + (e.id.value != undefined? e.id.value.replace("minecraft:", ""): "barrier") + ".png"}/>
                 <span className="itemTooltip">
                     <p className="itemNickname">{e.tag ? e.tag.value.display ? JSON.parse(e.tag.value.display.value.Name.value).text : null : null}</p>
 
@@ -93,40 +93,43 @@ export default function LoadImage(props) {
 
                     {isPotion ? <p>{e.tag.value.Potion.value}</p> : ""}
 
-                    {isShulker ? e.tag.value.BlockEntityTag.value.Items.value.value.length + " slots used" : ""}
+                    {isShulker ? <p>{e.tag.value.BlockEntityTag.value.Items.value.value.length + " slots used"}</p> : e.id.value.includes("shulker") ? <p>0 slots used</p> : ""}
+
                 </span>
             </div>
             <div className={"shulkerModal " + (modalOpen ? "shulkerModalOpen" : "")} onClick={handleShulkerClose}>
                 <div className="modalContent">
-                    <span class="close" onClick={handleShulkerClose}>&times;</span>
-                    <p>Shulker Items: </p>
-
-                    <div className="invRow">
-                    {sTopRow.map(e => {
-                            if (e === undefined) {
-                            return <LoadImage />
-                        } else {
-                            return <LoadImage data={e} />
-                        }
-                    })}
-                    </div>
-                    <div className="invRow">
-                    {sMidRow.map(e => {
-                            if (e === undefined) {
-                            return <LoadImage />
-                        } else {
-                            return <LoadImage data={e} />
-                        }
-                    })}
-                    </div>
-                    <div className="invRow">
-                    {sBotRow.map(e => {
-                            if (e === undefined) {
-                            return <LoadImage />
-                        } else {
-                            return <LoadImage data={e} />
-                        }
-                    })}
+                    {/* <span class="close" onClick={handleShulkerClose}>&times;</span> */}
+                    {/* <p>Shulker Items: </p> */}
+                    <div className="inventory">
+                        <p className="invText">Shulker Box</p>
+                        <div className="invRow">
+                            {sTopRow.map(e => {
+                                    if (e === undefined) {
+                                    return <LoadImage />
+                                } else {
+                                    return <LoadImage data={e} />
+                                }
+                            })}
+                        </div>
+                        <div className="invRow">
+                            {sMidRow.map(e => {
+                                    if (e === undefined) {
+                                    return <LoadImage />
+                                } else {
+                                    return <LoadImage data={e} />
+                                }
+                            })}
+                        </div>
+                        <div className="invRow">
+                            {sBotRow.map(e => {
+                                    if (e === undefined) {
+                                    return <LoadImage />
+                                } else {
+                                    return <LoadImage data={e} />
+                                }
+                            })}
+                        </div>
                     </div>
                 </div>
             </div>

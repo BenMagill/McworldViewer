@@ -60,16 +60,11 @@ export default function Index() {
     }
 
     const parsePlayerData = () => {
-
         async function parse() {
             if (currentPlayer!== "") {
-
-                // const parsedNbt = await ipcRenderer.invoke("parse-file", path.join(data.worldFolder, "playerdata", currentPlayer+".dat"))
                 ipcRenderer.invoke("parse-file", path.join(data.worldFolder, "playerdata", currentPlayer+".dat")).then(parsedNbt => {
                     setParsedNbtData(parsedNbt)
-
                 })
-                // console.log(parsedNbt)
             }
         }
         parse()
@@ -84,7 +79,7 @@ export default function Index() {
                         return (
                             <button className="playerContainer" key={e.uuid} onClick={handlePlayerSelect.bind(this, e.uuid)}>
                                 <img src={e.logo} alt="Logo" className="playerAvatar" />
-                                <p className="playerName">{e.username}</p>
+                                <span className="playerName">{e.username}</span>
                             </button>
                         )
                     })
@@ -93,7 +88,6 @@ export default function Index() {
             </div>
             <div className="playerContent">
                 {currentPlayer===""  ? <p>Select a player</p> : <Viewer data={parsedNbtData}/> }
-                {currentPlayer}
                 {/* {setParsedNbtData.value.Pos.value.value[0]} */}
             </div>
             {data.worldFolder === "" ? <Redirect to=""/>: null}

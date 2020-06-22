@@ -1,5 +1,5 @@
 import React from 'react'
-import LoadImage from "./loadImage"
+import LoadImage from "../../components/ItemHandler"
 export default function viewer(props) {
     const data = props.data
     if (props.data.value == undefined) {
@@ -30,7 +30,7 @@ export default function viewer(props) {
         var playerInventory = {}
 
         if (inv.length === 0) {
-            console.log("Empty Inv")
+            // console.log("Empty Inv")
         } else {
             inv.forEach(element => {
                playerInventory[element.Slot.value] = element
@@ -75,7 +75,7 @@ export default function viewer(props) {
         var playerEchest = {}
 
         if (ech.length === 0) {
-            console.log("Empty Inv")
+            // console.log("Empty Inv")
         } else {
             ech.forEach(element => {
                 playerEchest[element.Slot.value] = element
@@ -125,80 +125,91 @@ export default function viewer(props) {
                 <p>{`Can Build: ${data.value.abilities.value.invulnerable.value == 1 ? "True" : "False"}`}</p>
 
                 <div>
-                    <p>Inventory: </p>
-                    <p>Armour:</p>
-                        {playerInventory[103] != undefined ? <LoadImage data={playerInventory[103]} /> : <LoadImage />}
-                        {playerInventory[102] != undefined ? <LoadImage data={playerInventory[102]} /> : <LoadImage />}
-                        {playerInventory[101] != undefined ? <LoadImage data={playerInventory[101]} /> : <LoadImage />}
-                        {playerInventory[100] != undefined ? <LoadImage data={playerInventory[100]} /> : <LoadImage />}
-                    <p>Offhand:</p>
-                    {playerInventory[-106] != undefined ? <LoadImage data={playerInventory[-106]} /> : <LoadImage />}
-                    <p>Main:</p>
-                    <div className="invRow">
-                    {topRow.map(e => {
-                        if (e === undefined) {
-                            return <LoadImage />
-                        } else {
-                            return <LoadImage data={e} />
-                        }
-                    })}
+                    <div className="inventory">
+                        <p className="invText">Inventory</p>
+                        <div className="armour">
+                            <div className="armourSlot">
+                                {playerInventory[103] != undefined ? <LoadImage data={playerInventory[103]} /> : <LoadImage data={{id:{value:"empty_armor_slot_helmet"}}}/>}
+                            </div>
+                            <div className="armourSlot">
+                                {playerInventory[102] != undefined ? <LoadImage data={playerInventory[102]} /> : <LoadImage data={{id:{value:"empty_armor_slot_chestplate"}}}/>}
+                            </div>
+                            <div className="armourSlot">
+                                {playerInventory[101] != undefined ? <LoadImage data={playerInventory[101]} /> : <LoadImage data={{id:{value:"empty_armor_slot_leggings"}}}/>}
+                            </div>
+                            <div className="armourSlot">
+                                {playerInventory[100] != undefined ? <LoadImage data={playerInventory[100]} /> : <LoadImage data={{id:{value:"empty_armor_slot_boots"}}}/>}
+                                {playerInventory[-106] != undefined ? <LoadImage data={playerInventory[-106]} /> : <LoadImage data={{id:{value:"empty_armor_slot_shield"}}}/>}
+                            </div>
+                        </div>
+                        <div className="invRow">
+                            {topRow.map(e => {
+                                if (e === undefined) {
+                                    return <LoadImage />
+                                } else {
+                                    return <LoadImage data={e} />
+                                }
+                            })}
+                        </div>
+                        <div className="invRow">
+                            {midRow.map(e => {
+                                if (e === undefined) {
+                                    return <LoadImage />
+                                } else {
+                                    return <LoadImage data={e} />
+                                }
+                            })}
+                        </div>
+                        <div className="invRow">
+                            {botRow.map(e => {
+                                if (e === undefined) {
+                                    return <LoadImage />
+                                } else {
+                                    return <LoadImage data={e} />
+                                }
+                            })}
+                        </div>
+                        <div className="hotbar">
+                            {hotRow.map(e => {
+                                if (e === undefined) {
+                                    return <LoadImage />
+                                } else {
+                                    return <LoadImage data={e} />
+                                }
+                            })}
+                        </div>
                     </div>
-                    <div className="invRow">
-                    {midRow.map(e => {
-                        if (e === undefined) {
-                            return <LoadImage />
-                        } else {
-                            return <LoadImage data={e} />
-                        }
-                    })}
-                    </div>
-                    <div className="invRow">
-                    {botRow.map(e => {
-                        if (e === undefined) {
-                            return <LoadImage />
-                        } else {
-                            return <LoadImage data={e} />
-                        }
-                    })}
-                    </div>
-                    <p>Hotbar:</p>
-                    {hotRow.map(e => {
-                        if (e === undefined) {
-                            return <LoadImage />
-                        } else {
-                            return <LoadImage data={e} />
-                        }
-                    })}
                 </div>
-
                 <div>
-                    <p>Echest:</p>
-                    <div className="invRow">
-                    {eTopRow.map(e => {
-                            if (e === undefined) {
-                            return <LoadImage />
-                        } else {
-                            return <LoadImage data={e} />
-                        }
-                    })}
-                    </div>
-                    <div className="invRow">
-                    {eMidRow.map(e => {
-                            if (e === undefined) {
-                            return <LoadImage />
-                        } else {
-                            return <LoadImage data={e} />
-                        }
-                    })}
-                    </div>
-                    <div className="invRow">
-                    {eBotRow.map(e => {
-                            if (e === undefined) {
-                            return <LoadImage />
-                        } else {
-                            return <LoadImage data={e} />
-                        }
-                    })}
+                    <div className="inventory">
+                        <p className="invText">Ender chest</p>
+                        <div className="invRow">
+                            {eTopRow.map(e => {
+                                    if (e === undefined) {
+                                    return <LoadImage />
+                                } else {
+                                    return <LoadImage data={e} />
+                                }
+                            })}
+                        </div>
+                        <div className="invRow">
+                            {eMidRow.map(e => {
+                                    if (e === undefined) {
+                                    return <LoadImage />
+                                } else {
+                                    return <LoadImage data={e} />
+                                }
+                            })}
+                        </div>
+                        <div className="invRow">
+                            {eBotRow.map(e => {
+                                    if (e === undefined) {
+                                    return <LoadImage />
+                                } else {
+                                    return <LoadImage data={e} />
+                                }
+                            })}
+                        </div>
                     </div>
                 </div>
             </div>

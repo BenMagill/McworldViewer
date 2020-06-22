@@ -34,20 +34,21 @@ export default function Index() {
     return (
         <div className="navbar">
             <p className="navTitle">NBT Viewer</p>
-
-            <div className="tabs">
-                <Link className="tab" to="/player">
-                    Player
-                </Link>
-                <Link className="tab" to="/world">
-                    World
-                </Link>
-            </div>
-
             <div className="folderSelector">
                 <button onClick={handleClick}>{data.worldFolder? "Selected: " + data.worldFolder.split("/")[data.worldFolder.split("/").length -1] : "Select Folder"}</button>
             </div>
-
+            <div className="tabs">
+                <Link className="tab" to="/player">
+                    <button>
+                        Player
+                    </button>
+                </Link>
+                <Link className="tab" to="/world">
+                    <button>
+                        World
+                    </button>
+                </Link>
+            </div>
         </div>
     )
 }

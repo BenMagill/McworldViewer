@@ -1,7 +1,11 @@
 .playerSelector {
-    height: 100%;
-    border-right: 1px black solid;
-    width: 140px;
+    height: auto;
+    border-right: 1px white solid;
+    width: 160px;
+    padding-right: 2px;
+    margin-right: 10px;
+    padding-left: 2px;
+
 }
 
 .playerAvatar {
@@ -43,23 +47,36 @@
 }
 
 .blankImage {
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
     display: inline-flex;
-    border: 1px black solid;
+    /* border: 1px black solid; */
+    background-color: #8a8a8a;
+    box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8), inset -2px -2px 0px #ffffff;
+    vertical-align: top;
+
 }
 
 .invRow {
 
 }
 
+.item {
+    width: 32px;
+    height: 32px;
+    padding: 2px 1px;
+}
+
 .itemContainer {
     display: inline-block;
     position: relative;
-    height: 32px;
-    width: 32px;
+    width: 36px;
+    height: 36px;
+    padding: 0px;
     image-rendering: pixelated;
-    /* background-color: #8a8a8a; */
+    background-color: #8a8a8a;
+    box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8), inset -2px -2px 0px #ffffff;
+    vertical-align: top;
 }
 
 .itemImage {
@@ -120,8 +137,7 @@
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0,0,0,0.18); /* Black w/ opacity */
 }
 
 .shulkerModalOpen {
@@ -129,11 +145,9 @@
 }
 
 .modalContent {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    background-color: #fefefe00;
+    margin: 20% auto; /* 15% from the top and centered */
+    width: fit-content;
 }
 
 .close {
@@ -148,4 +162,25 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.inventory {
+    background-color: #c6c6c6;
+    border-radius: 3px;
+    box-shadow: 5px 5px 0px #555555, inset 4px 4px 0px #fefefe00;
+    padding: 10px;
+    padding-top: 2px;
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.hotbar {
+    margin-top: 10px;
+}
+
+.armourSlot {
+}
+
+.armour {
+    margin-bottom: 10px;
 }

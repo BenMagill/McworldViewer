@@ -1,15 +1,15 @@
 .navbar {
-    border-bottom: 1px black solid;
-    height: 25px;
+    border-bottom: 1px white solid;
+    height: 36px;
 }
 
 .tabs {
     display: inline;
+    float: right;
 }
 
 .tab {
-    margin: 0 1px;
-    padding: 0 4px;
+ 
 }
 
 .navTitle {
