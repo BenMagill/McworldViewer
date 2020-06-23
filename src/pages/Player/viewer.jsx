@@ -3,7 +3,7 @@ import LoadImage from "../../components/ItemHandler"
 export default function Viewer(props) {
     
     const data = props.data
-    if (props.data.value == undefined) {
+    if (props.data.value === undefined) {
         return (
             ""
         )
@@ -108,17 +108,17 @@ export default function Viewer(props) {
                         <p className="invText">Inventory</p>
                         <div className="armour">
                             <div className="armourSlot">
-                                {playerInventory[103] != undefined ? <LoadImage data={playerInventory[103]} /> : <LoadImage data={{id:{value:"empty_armor_slot_helmet"}}}/>}
+                                {playerInventory[103] !== undefined ? <LoadImage data={playerInventory[103]} /> : <LoadImage data={{id:{value:"empty_armor_slot_helmet"}}}/>}
                             </div>
                             <div className="armourSlot">
-                                {playerInventory[102] != undefined ? <LoadImage data={playerInventory[102]} /> : <LoadImage data={{id:{value:"empty_armor_slot_chestplate"}}}/>}
+                                {playerInventory[102] !== undefined ? <LoadImage data={playerInventory[102]} /> : <LoadImage data={{id:{value:"empty_armor_slot_chestplate"}}}/>}
                             </div>
                             <div className="armourSlot">
-                                {playerInventory[101] != undefined ? <LoadImage data={playerInventory[101]} /> : <LoadImage data={{id:{value:"empty_armor_slot_leggings"}}}/>}
+                                {playerInventory[101] !== undefined ? <LoadImage data={playerInventory[101]} /> : <LoadImage data={{id:{value:"empty_armor_slot_leggings"}}}/>}
                             </div>
                             <div className="armourSlot">
-                                {playerInventory[100] != undefined ? <LoadImage data={playerInventory[100]} /> : <LoadImage data={{id:{value:"empty_armor_slot_boots"}}}/>}
-                                {playerInventory[-106] != undefined ? <LoadImage data={playerInventory[-106]} /> : <LoadImage data={{id:{value:"empty_armor_slot_shield"}}}/>}
+                                {playerInventory[100] !== undefined ? <LoadImage data={playerInventory[100]} /> : <LoadImage data={{id:{value:"empty_armor_slot_boots"}}}/>}
+                                {playerInventory[-106] !== undefined ? <LoadImage data={playerInventory[-106]} /> : <LoadImage data={{id:{value:"empty_armor_slot_shield"}}}/>}
                             </div>
                         </div>
                         <div className="invRow">
@@ -205,13 +205,13 @@ export default function Viewer(props) {
 
                     <p>{`Xp Seed: ${data.value.XpSeed.value}`}</p>
 
-                    <p>{`Seen Credits: ${(data.value.seenCredits.value == 1 ? "True" : "False")}`}</p>
+                    <p>{`Seen Credits: ${(data.value.seenCredits.value === 1 ? "True" : "False")}`}</p>
 
-                    <p>{`Can Fly: ${(data.value.abilities.value.mayfly.value == 1 ? "True" : "False")}`}</p>
+                    <p>{`Can Fly: ${(data.value.abilities.value.mayfly.value === 1 ? "True" : "False")}`}</p>
 
-                    <p>{`Can Build: ${data.value.abilities.value.mayBuild.value == 1 ? "True" : "False"}`}</p>
+                    <p>{`Can Build: ${data.value.abilities.value.mayBuild.value === 1 ? "True" : "False"}`}</p>
 
-                    <p>{`Can Build: ${data.value.abilities.value.invulnerable.value == 1 ? "True" : "False"}`}</p>
+                    <p>{`Can Build: ${data.value.abilities.value.invulnerable.value === 1 ? "True" : "False"}`}</p>
 
                 </div>
             </div>

@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useState} from 'react'
 import path from "path"
 import {DataContext} from "../../store/DataStore"
 import Redirect from "react-router-dom/Redirect"
-import nbt from "nbt"
 import Viewer from "./viewer.jsx"
 import "./index.css"
 const util = require('util');

@@ -12,24 +12,24 @@ export default function LoadImage(props) {
     const e = props.data
     const [modalOpen, setModalOpen] = useState(false)
     // console.log(e)
-    if (e == undefined) {
+    if (e === undefined) {
         return <div className="blankImage"></div>
     } else {
         var isShulker = false
         var isEnchanted = false
         var isEnchantedBook = false
         var isPotion = false
-        if (e.tag != undefined) {
-            if (e.tag.value.Enchantments != undefined) {
+        if (e.tag !== undefined) {
+            if (e.tag.value.Enchantments !== undefined) {
                 isEnchanted = true
             }
-            if (e.tag.value.BlockEntityTag != undefined && e.id.value.includes("shulker")) {
+            if (e.tag.value.BlockEntityTag !== undefined && e.id.value.includes("shulker")) {
                 isShulker = true
             }
-            if (e.tag.value.Potion != undefined) {
+            if (e.tag.value.Potion !== undefined) {
                 isPotion = true
             }
-            if (e.tag.value.StoredEnchantments != undefined) {
+            if (e.tag.value.StoredEnchantments !== undefined) {
                 isEnchantedBook = true
             }
         }
@@ -79,8 +79,8 @@ export default function LoadImage(props) {
         return (
             <React.Fragment>
             <div className={"itemContainer " + (isEnchanted || isEnchantedBook ?"enchanted":"") } onClick={handleShulkerOpen}>
-                <img className="item" alt=";)" onError={(ev)=>{ev.target.onerror = null; ev.target.src=images["barrier.png"];}} src={ images[ (e.id.value != undefined? e.id.value.replace("minecraft:", ""): "barrier") + ".png" ]}/>
-                <p className="itemCount">{e.Count ? e.Count.value == 1 ? "": e.Count.value : ""}</p>
+                <img className="item" alt=";)" onError={(ev)=>{ev.target.onerror = null; ev.target.src=images["barrier.png"];}} src={ images[ (e.id.value !== undefined? e.id.value.replace("minecraft:", ""): "barrier") + ".png" ]}/>
+                <p className="itemCount">{e.Count ? e.Count.value === 1 ? "": e.Count.value : ""}</p>
                 <span className="itemTooltip">
                     <p className="itemNickname">{e.tag ? e.tag.value.display ? JSON.parse(e.tag.value.display.value.Name.value).text : null : null}</p>
 
