@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("/images/background.jpg");
+  background-image: url("./images/background.jpg");
   background-repeat: repeat;
   background-size: 150px;
   color: white;
@@ -34,7 +34,7 @@ body {
 button {
   font-family: Minecraftia;
   color: white;
-  background-image: url("/images/button.png");
+  background-image: url("./images/button.png");
   outline: 2px solid black;
   position: relative;
   margin: 0;
@@ -58,7 +58,7 @@ button:hover {
   border-right: 2px solid #59639A;
   border-left: 2px solid #BDC6FF;
   border-top: 2px solid #BDC6FF;
-  background-image: url('/images/button_active.png');
+  background-image: url('./images/button_active.png');
   /* color: #FFFFA0; */
 }
 

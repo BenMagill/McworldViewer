@@ -1,6 +1,14 @@
 import React, {useState} from 'react'
 
 export default function LoadImage(props) {
+    function importAll(r) {
+        let images = {};
+        r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+        return images;
+    }
+      
+    const images = importAll(require.context('../../images/all', false, /\.(png|jpe?g|svg)$/));
+      
     const e = props.data
     const [modalOpen, setModalOpen] = useState(false)
     // console.log(e)
@@ -71,7 +79,7 @@ export default function LoadImage(props) {
         return (
             <React.Fragment>
             <div className={"itemContainer " + (isEnchanted || isEnchantedBook ?"enchanted":"") } onClick={handleShulkerOpen}>
-                <img className="item" alt=";)" onError={(ev)=>{ev.target.onerror = null; ev.target.src="/images/all/barrier.png";}} src={ "/images/all/" + (e.id.value != undefined? e.id.value.replace("minecraft:", ""): "barrier") + ".png"}/>
+                <img className="item" alt=";)" onError={(ev)=>{ev.target.onerror = null; ev.target.src=images["barrier.png"];}} src={ images[ (e.id.value != undefined? e.id.value.replace("minecraft:", ""): "barrier") + ".png" ]}/>
                 <p className="itemCount">{e.Count ? e.Count.value == 1 ? "": e.Count.value : ""}</p>
                 <span className="itemTooltip">
                     <p className="itemNickname">{e.tag ? e.tag.value.display ? JSON.parse(e.tag.value.display.value.Name.value).text : null : null}</p>
