@@ -33,7 +33,7 @@ export default function Index() {
 
     return (
         <div className="navbar">
-            <p className="navTitle">NBT Viewer</p>
+            <p className="navTitle">MC World Viewer</p>
             <div className="folderSelector">
                 <button onClick={handleClick}>{data.worldFolder? "Selected: " + data.worldFolder.split("/")[data.worldFolder.split("/").length -1] : "Select Folder"}</button>
             </div>
