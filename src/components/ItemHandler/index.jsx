@@ -71,17 +71,17 @@ export default function LoadImage(props) {
         return (
             <React.Fragment>
             <div className={"itemContainer " + (isEnchanted || isEnchantedBook ?"enchanted":"") } onClick={handleShulkerOpen}>
-                {/* <img alt=";)" src={ "/images/" + (itemData[e.id.value] != undefined? itemData[e.id.value].type : "166") + "-0.png"}/> */}
-                {/* {itemData[e.id.value] != undefined? "" : console.log(e.id.value)} */}
-                {/* <img className="itemContainer" alt=";)" onError={(ev)=>{ev.target.onerror = null; ev.target.src="/images/new/barrier.png"}} src={ "/images/new/" + (e.id.value != undefined? e.id.value.replace("minecraft:", ""): "barrier") + ".png"}/> */}
                 <img className="item" alt=";)" onError={(ev)=>{ev.target.onerror = null; ev.target.src="/images/all/barrier.png";}} src={ "/images/all/" + (e.id.value != undefined? e.id.value.replace("minecraft:", ""): "barrier") + ".png"}/>
                 <p className="itemCount">{e.Count ? e.Count.value == 1 ? "": e.Count.value : ""}</p>
                 <span className="itemTooltip">
                     <p className="itemNickname">{e.tag ? e.tag.value.display ? JSON.parse(e.tag.value.display.value.Name.value).text : null : null}</p>
 
-                    <p>{e.id.value}</p>
+                    <p>{e.id.value.replace("minecraft:", "").replace(/_/g, " ")}</p>
+
 
                     <div className="itemTextExtra">
+
+                    <p>{e.id.value}</p>
 
                     {e.tag ? e.tag.value.Enchantments ? e.tag.value.Enchantments.value.value.map(enchants => {
                         return <p>{enchants.id.value + " " + enchants.lvl.value}</p>
