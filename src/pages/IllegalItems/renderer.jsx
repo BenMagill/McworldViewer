@@ -12,9 +12,7 @@ export default function renderer(props) {
                             return <p>{illegalEnchants.type + " " + illegalEnchants.lvl}</p>
                         })}
                     </div>
-                )
-
-                
+                )                
             })}
 
         </React.Fragment>

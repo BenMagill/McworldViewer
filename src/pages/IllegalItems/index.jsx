@@ -90,34 +90,36 @@ export default function Index() {
 
     const checkItems = (arr) => {
         var illegals = []
-        arr.map(item => {
-            if (item.tag != undefined) {
-                if (item.tag.value.Enchantments != undefined) {
-                    var currItem = []
-                    var found = false
-                    item.tag.value.Enchantments.value.value.map(enchantment => {
-                        const currLvl = enchantment.lvl.value
-                        const maxLvl = (enchantMax[enchantment.id.value.replace("minecraft:", "")])
-                        if (currLvl > maxLvl) {
-                            currItem.push({type: enchantment.id.value, lvl: enchantment.lvl.value})
-                            found = true
+        if (arr !== undefined) {
+            arr.map(item => {
+                if (item.tag !== undefined) {
+                    if (item.tag.value.Enchantments !== undefined) {
+                        var currItem = []
+                        var found = false
+                        item.tag.value.Enchantments.value.value.map(enchantment => {
+                            const currLvl = enchantment.lvl.value
+                            const maxLvl = (enchantMax[enchantment.id.value.replace("minecraft:", "")])
+                            if (currLvl > maxLvl) {
+                                currItem.push({type: enchantment.id.value, lvl: enchantment.lvl.value})
+                                found = true
+                            }
+                        });
+                        if (found) {
+                            illegals.push({name:item.id.value, enchants: currItem})
                         }
-                    });
-                    if (found) {
-                        illegals.push({name:item.id.value, enchants: currItem})
-                    }
-                } 
-                if (item.tag.value.BlockEntityTag != undefined && item.id.value.includes("shulker")) {
-                    const shulkerItems = item.tag.value.BlockEntityTag.value.Items.value.value
-                    const shulkerIllegals = checkItems(shulkerItems)
-                    if (shulkerIllegals.length>0) {
-                        shulkerIllegals.forEach(e => {
-                            illegals.push(e)
-                        })
+                    } 
+                    if (item.tag.value.BlockEntityTag !== undefined && item.id.value.includes("shulker")) {
+                        const shulkerItems = item.tag.value.BlockEntityTag.value.Items.value.value
+                        const shulkerIllegals = checkItems(shulkerItems)
+                        if (shulkerIllegals.length>0) {
+                            shulkerIllegals.forEach(e => {
+                                illegals.push(e)
+                            })
+                        }
                     }
                 }
-            }
-        })
+            })
+        }
         return illegals
     }
 
