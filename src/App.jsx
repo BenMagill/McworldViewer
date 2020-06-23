@@ -3,6 +3,7 @@ import Topbar from "./components/Topbar"
 import {BrowserRouter, Switch, Route} from "react-router-dom"
 import WorldPage from "./pages/World"
 import PlayerPage from "./pages/Player"
+import IllegalsPage from "./pages/IllegalItems"
 import WelcomePage from './pages/Welcome'
 import './App.css';
 
@@ -14,6 +15,7 @@ function App() {
           <Switch>
             <Route path="/world" component={WorldPage} />
             <Route path="/player" component={PlayerPage} />
+            <Route path="/illegals" component={IllegalsPage} />
             <Route path="/" component={WelcomePage} />
           </Switch>
       </BrowserRouter>
