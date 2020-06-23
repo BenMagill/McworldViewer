@@ -68,7 +68,7 @@
 }
 
 .itemContainer {
-    display: inline-block;
+    display: inline-flex;
     position: relative;
     width: 36px;
     height: 36px;
@@ -90,11 +90,15 @@
 
 }
 
+.itemTextExtra {
+    color: #808080;
+}
+
 .itemTooltip {
     left: 40px;
     visibility: hidden;
     position: absolute;
-    background-color: #555;
+    background-color: #121115;
     color: #fff;
     text-align: center;
     padding: 5px 10px;
@@ -151,10 +155,12 @@
 }
 
 .close {
-    color: #aaa;
+    color: #696969;
     float: right;
-    font-size: 28px;
+    /* font-size: 28px; */
     font-weight: bold;
+    margin-right: 10px;
+    margin-top: 3px;
   }
   
 .close:hover,
@@ -183,4 +189,46 @@
 
 .armour {
     margin-bottom: 10px;
+}
+
+.itemCount {
+    position: absolute;
+    background-color: #ffffff00;
+    right: 2px;
+    bottom: 1px;
+    font-size: 12px;
+}
+
+.playerInfo {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.invs {
+    display: inline-block;
+}
+
+.illegalModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.18); /* Black w/ opacity */
+}
+
+.illegalModalOpen {
+    display: block;
+}
+
+.illegalModalContent {
+    background-color: #fefefe;
+    margin: 20% auto; /* 15% from the top and centered */
+    width: 40%;
+    height: fit-content;
+    color: black;
+    padding: 10px;
 }

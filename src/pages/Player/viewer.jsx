@@ -1,6 +1,7 @@
 import React from 'react'
 import LoadImage from "../../components/ItemHandler"
-export default function viewer(props) {
+export default function Viewer(props) {
+    
     const data = props.data
     if (props.data.value == undefined) {
         return (
@@ -97,34 +98,12 @@ export default function viewer(props) {
 
         console.log({playerEchest})
         
+        
+
         return (
-            <div>
+            <div style={{display:"flex"}}>
                 {/* {console.log(data)} */}
-                
-                <p>{`Gamemode: ${mode}`}</p>
-
-                <div className="viewerPos">
-                    <p>Position:</p>
-                    <p>X: {Math.trunc(data.value.Pos.value.value[0])}</p>
-                    <p>Y: {Math.trunc(data.value.Pos.value.value[1])}</p>
-                    <p>Z: {Math.trunc(data.value.Pos.value.value[2])}</p>
-                </div>
-
-                <p>{`Score: ${data.value.XpTotal.value}`}</p>
-
-                <p>{`Xp Level: ${data.value.XpLevel.value}`}</p>
-
-                <p>{`Xp Seed: ${data.value.XpSeed.value}`}</p>
-
-                <p>{`Seen Credits: ${(data.value.seenCredits.value == 1 ? "True" : "False")}`}</p>
-
-                <p>{`Can Fly: ${(data.value.abilities.value.mayfly.value == 1 ? "True" : "False")}`}</p>
-
-                <p>{`Can Build: ${data.value.abilities.value.mayBuild.value == 1 ? "True" : "False"}`}</p>
-
-                <p>{`Can Build: ${data.value.abilities.value.invulnerable.value == 1 ? "True" : "False"}`}</p>
-
-                <div>
+                <div className="invs">
                     <div className="inventory">
                         <p className="invText">Inventory</p>
                         <div className="armour">
@@ -179,8 +158,6 @@ export default function viewer(props) {
                             })}
                         </div>
                     </div>
-                </div>
-                <div>
                     <div className="inventory">
                         <p className="invText">Ender chest</p>
                         <div className="invRow">
@@ -211,6 +188,31 @@ export default function viewer(props) {
                             })}
                         </div>
                     </div>
+                </div>
+                <div className="playerInfo">
+                    <p>{`Gamemode: ${mode}`}</p>
+
+                    <div className="viewerPos">
+                        <p>Position:</p>
+                        <p>X: {Math.trunc(data.value.Pos.value.value[0])}</p>
+                        <p>Y: {Math.trunc(data.value.Pos.value.value[1])}</p>
+                        <p>Z: {Math.trunc(data.value.Pos.value.value[2])}</p>
+                    </div>
+
+                    <p>{`Score: ${data.value.XpTotal.value}`}</p>
+
+                    <p>{`Xp Level: ${data.value.XpLevel.value}`}</p>
+
+                    <p>{`Xp Seed: ${data.value.XpSeed.value}`}</p>
+
+                    <p>{`Seen Credits: ${(data.value.seenCredits.value == 1 ? "True" : "False")}`}</p>
+
+                    <p>{`Can Fly: ${(data.value.abilities.value.mayfly.value == 1 ? "True" : "False")}`}</p>
+
+                    <p>{`Can Build: ${data.value.abilities.value.mayBuild.value == 1 ? "True" : "False"}`}</p>
+
+                    <p>{`Can Build: ${data.value.abilities.value.invulnerable.value == 1 ? "True" : "False"}`}</p>
+
                 </div>
             </div>
         )

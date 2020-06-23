@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import itemData from "../../minecraftItemData"
 
 export default function LoadImage(props) {
     const e = props.data
@@ -26,8 +25,6 @@ export default function LoadImage(props) {
                 isEnchantedBook = true
             }
         }
-        // console.log({isShulker, isEnchanted})
-
 
         var shulker = {}
         var sTopRow = []
@@ -78,10 +75,13 @@ export default function LoadImage(props) {
                 {/* {itemData[e.id.value] != undefined? "" : console.log(e.id.value)} */}
                 {/* <img className="itemContainer" alt=";)" onError={(ev)=>{ev.target.onerror = null; ev.target.src="/images/new/barrier.png"}} src={ "/images/new/" + (e.id.value != undefined? e.id.value.replace("minecraft:", ""): "barrier") + ".png"}/> */}
                 <img className="item" alt=";)" onError={(ev)=>{ev.target.onerror = null; ev.target.src="/images/all/barrier.png";}} src={ "/images/all/" + (e.id.value != undefined? e.id.value.replace("minecraft:", ""): "barrier") + ".png"}/>
+                <p className="itemCount">{e.Count ? e.Count.value == 1 ? "": e.Count.value : ""}</p>
                 <span className="itemTooltip">
                     <p className="itemNickname">{e.tag ? e.tag.value.display ? JSON.parse(e.tag.value.display.value.Name.value).text : null : null}</p>
 
                     <p>{e.id.value}</p>
+
+                    <div className="itemTextExtra">
 
                     {e.tag ? e.tag.value.Enchantments ? e.tag.value.Enchantments.value.value.map(enchants => {
                         return <p>{enchants.id.value + " " + enchants.lvl.value}</p>
@@ -94,12 +94,13 @@ export default function LoadImage(props) {
                     {isPotion ? <p>{e.tag.value.Potion.value}</p> : ""}
 
                     {isShulker ? <p>{e.tag.value.BlockEntityTag.value.Items.value.value.length + " slots used"}</p> : e.id.value.includes("shulker") ? <p>0 slots used</p> : ""}
-
+                    
+                    </div>
                 </span>
             </div>
             <div className={"shulkerModal " + (modalOpen ? "shulkerModalOpen" : "")} onClick={handleShulkerClose}>
                 <div className="modalContent">
-                    {/* <span class="close" onClick={handleShulkerClose}>&times;</span> */}
+                    <span class="close" onClick={handleShulkerClose}>&times;</span>
                     {/* <p>Shulker Items: </p> */}
                     <div className="inventory">
                         <p className="invText">Shulker Box</p>

@@ -15,6 +15,7 @@
 .navTitle {
     display: inline;
     margin-right: 100px;
+    margin-left: 10px;
 }
 
 .folderSelector {

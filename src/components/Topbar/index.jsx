@@ -38,6 +38,11 @@ export default function Index() {
                 <button onClick={handleClick}>{data.worldFolder? "Selected: " + data.worldFolder.split("/")[data.worldFolder.split("/").length -1] : "Select Folder"}</button>
             </div>
             <div className="tabs">
+                <Link className="tab" to="/illegals">
+                    <button>
+                        Illegals
+                    </button>
+                </Link>
                 <Link className="tab" to="/player">
                     <button>
                         Player
