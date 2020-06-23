@@ -1,6 +1,6 @@
 const electron = require("electron")
 const os = require('os');
-const {BrowserWindow, app, ipcMain, dialog, net} = require("electron")
+const {BrowserWindow, app, ipcMain, dialog, net, Menu} = require("electron")
 const path = require("path")
 const url = require("url")
 const fs = require("fs")
@@ -8,7 +8,7 @@ const nbt = require("nbt")
 
 let mainWindow
 function createWindow(){
-    mainWindow = new BrowserWindow({width: 800, height: 600, minWidth: 800,
+    mainWindow = new BrowserWindow({width: 1020, height: 600, minWidth: 1020,
         webPreferences: {
             nodeIntegration: true,
             preload: path.join(__dirname, "preload.js"),
@@ -26,6 +26,8 @@ function createWindow(){
     mainWindow.on("closed", function(){
         mainWindow = null
     })
+
+    Menu.setApplicationMenu(Menu.buildFromTemplate([]))
 }
 
 app.on("ready", createWindow)
