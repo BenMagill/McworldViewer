@@ -15,6 +15,7 @@ export default function Index() {
     const data = useContext(DataContext)
     const [players, setPlayers] = useState([])
 
+    // The max level of all enchantments
     var enchantMax = {
         protection:4,
         fire_protection:4,
@@ -56,20 +57,21 @@ export default function Index() {
     }
 
     useEffect(() => {
-        async function g() {
+        // Must be async
+        async function getData() {
+            // If has selected a world folder
             if (data.worldFolder !== "") {
                 const playerList = []
+                // Get list of all files in playerdata folder
                 const files = await readdir(path.join(data.worldFolder, "playerdata"))
                 for (let i = 0; i < files.length; i++) {
                     const file = files[i];
-                    // console.log(file)
+                    // Check if player data file or useless
                     if (file.endsWith(".dat")) {
                         const uuid = file.replace(".dat", "")
-                        // console.log(uuid)
-                        const res = await ipcRenderer.invoke("convert-user-id", uuid)
-                        const userData = JSON.parse(res)
+                        // Get player info from the uuid
+                        const userData = JSON.parse(await ipcRenderer.invoke("convert-user-id", uuid))
                         if (userData.code === "player.found") {
-                            // console.log(userData.data)
                             var parsedNbt = await ipcRenderer.invoke("parse-file", path.join(data.worldFolder, "playerdata", userData.data.player.id+".dat"))                        }
                             playerList.push({username: userData.data.player.username, uuid: userData.data.player.id, logo: userData.data.player.avatar, data: parsedNbt})
                         
@@ -85,7 +87,7 @@ export default function Index() {
             }
         }
 
-        g()
+        getData()
     }, [data.worldFolder])
 
     const checkItems = (arr) => {
